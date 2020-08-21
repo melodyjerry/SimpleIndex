@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <style type="text/css"> 
+        #panel,#flip
+        {
+            padding:5px;
+            text-align:center;
+            background-color:#e5eecc;
+            border:solid 1px #c3c3c3;
+        }
+        #panel
+        {
+            padding:50px;
+            display:none;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $("p").dblclick(function(){
+                $(this).hide();
+            });
+            $("#hide").click(function(){
+                $(".text").hide();
+
+            });
+            $("#show").click(function(){
+                $(".text").show();
+            });
+            // $("#p1").mouseover(function(){
+            //     alert("你动到我了！");
+            // });
+            // $("#h11").hover(
+            //     function(){
+            //         alert("轻轻的你来了");
+            //     },
+            //     function(){
+            //         alert("亲爱的你又走了！");
+            //     }
+            // );
+            $("input").focus(function(){
+                $(this).css("background-color","#96b97d");
+            });
+            $("#toggle").click(function(){
+                $("p").toggle();
+            });
+            $("#flip").click(function(){
+                $("#panel").slideToggle();
+            });
+            $("#btn1").click(function(){
+                $("#blog").attr("href", function(i, origValue){
+                    alert("修改成功");
+                    return origValue + "/tags/随笔";
+                });
+            });
+            $("#addlastli").click(function(){
+                $("ol").append("<li>新增记录</li>");
+            });
+            $("#addpreli").click(function(){
+                $("ol").prepend ("<li>新增记录</li>");
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1 id="h11" class="text">这是一个jquery</h1>
+    <p id="p1">这是一个段落</p>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <button id="toggle">隐藏/显示</button>
+    <input id="username" type="text">
+    <input id="password" type="password">
+    <input type="hidden" value="WaiterXiaoyy">
+    <div id="flip">面板</div>
+    <div id="panel">Hello world!</div>
+    <div>
+        <button id="btn1">更改域名（attr回调）</button>
+        <a href="https://www.cnblogs.com/melodyjerry" id="blog">博客</a>
+    </div>
+    <button id="addlastli">在后面新增记录</button>
+    <button id="addpreli">在前面新增记录</button>
+    <ol>
+        <li>这是第一条记录</li>
+        <li>这是第二条记录</li>
+    </ol>
+    
+</body>
+</html>
